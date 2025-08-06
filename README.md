@@ -23,3 +23,13 @@
    ```bash
    git clone https://github.com/yourusername/admybrand-ai-suite.git
    cd admybrand-ai-suite
+
+## ️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/) with App Router
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) + [GSAP](https://greensock.com/gsap/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** [Vercel](https://vercel.com/)
