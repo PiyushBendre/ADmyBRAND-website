@@ -1,30 +1,36 @@
-# ADmyBRAND AI Suite
+# ADmyBRAND AI Suite Landing Page
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+<div align="center">
+  <img src="public/images/logo.png" alt="ADmyBRAND AI Suite" width="200"/>
+  
+  <p>Transform your marketing with AI-powered campaigns that deliver exceptional results.</p>
+  
+  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/admybrand-ai-suite)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+</div>
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/piyushbendre2004-7123s-projects/v0-ad-my-brand-ai-suite)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/82O2HO8IL7O)
+## ✨ Features
 
-## Overview
+- 🤖 **AI-Powered Content Generation** - Advanced algorithms for marketing content
+- 🎯 **Smart Audience Targeting** - Precision targeting with machine learning
+- 📊 **Real-time Analytics** - Comprehensive performance insights
+- ⚡ **Automated Optimization** - Continuous campaign improvement
+- 🔒 **Enterprise Security** - Bank-level data protection
+- 📱 **Mobile Responsive** - Optimized for all devices
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 🚀 Quick Start
 
-## Deployment
+### Prerequisites
 
-Your project is live at:
+- Node.js 18+ 
+- npm or yarn
+- Git
 
-**[https://vercel.com/piyushbendre2004-7123s-projects/v0-ad-my-brand-ai-suite](https://vercel.com/piyushbendre2004-7123s-projects/v0-ad-my-brand-ai-suite)**
+### Installation
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/82O2HO8IL7O](https://v0.dev/chat/projects/82O2HO8IL7O)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/admybrand-ai-suite.git
+   cd admybrand-ai-suite
