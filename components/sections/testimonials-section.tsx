@@ -285,13 +285,13 @@ export default function TestimonialsSection() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="glass rounded-2xl border border-white/10 p-6 mb-8 overflow-hidden"
+                className="glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 mb-6 sm:mb-8 overflow-hidden"
               >
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                   {/* Industry Filter */}
                   <div>
-                    <h3 className="text-white font-semibold mb-4 flex items-center">
-                      <Building className="w-4 h-4 mr-2 text-navy-400" />
+                    <h3 className="text-white font-semibold mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                      <Building className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-navy-400" />
                       Industry
                     </h3>
                     <div className="grid grid-cols-2 gap-2">
@@ -299,7 +299,7 @@ export default function TestimonialsSection() {
                         <motion.button
                           key={industry}
                           onClick={() => setSelectedIndustry(industry)}
-                          className={`p-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                          className={`p-2 sm:p-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 touch-target ${
                             selectedIndustry === industry
                               ? `bg-gradient-to-r ${getIndustryColor(industry)} text-white shadow-lg`
                               : 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white'
@@ -315,8 +315,8 @@ export default function TestimonialsSection() {
 
                   {/* Company Size Filter */}
                   <div>
-                    <h3 className="text-white font-semibold mb-4 flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-emerald-400" />
+                    <h3 className="text-white font-semibold mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+                      <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-emerald-400" />
                       Company Size
                     </h3>
                     <div className="grid grid-cols-2 gap-2">
@@ -324,7 +324,7 @@ export default function TestimonialsSection() {
                         <motion.button
                           key={size}
                           onClick={() => setSelectedCompanySize(size)}
-                          className={`p-3 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-2 ${
+                          className={`p-2 sm:p-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 touch-target ${
                             selectedCompanySize === size
                               ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg'
                               : 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white'
@@ -340,14 +340,14 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
 
-                {/* Active Filters Display */}
+                {/* Active Filters Display - Mobile Optimized */}
                 {(selectedIndustry !== 'All' || selectedCompanySize !== 'All') && (
-                  <div className="mt-6 pt-4 border-t border-white/10">
+                  <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/10">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-slate-400 text-sm">Active filters:</span>
+                      <span className="text-slate-400 text-xs sm:text-sm">Active filters:</span>
                       {selectedIndustry !== 'All' && (
                         <motion.div
-                          className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getIndustryColor(selectedIndustry)} text-white`}
+                          className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getIndustryColor(selectedIndustry)} text-white`}
                           whileHover={{ scale: 1.05 }}
                         >
                           {selectedIndustry}
@@ -355,7 +355,7 @@ export default function TestimonialsSection() {
                       )}
                       {selectedCompanySize !== 'All' && (
                         <motion.div
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-emerald-500 to-emerald-600 text-white flex items-center space-x-1"
+                          className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-emerald-500 to-emerald-600 text-white flex items-center space-x-1"
                           whileHover={{ scale: 1.05 }}
                         >
                           {getCompanySizeIcon(selectedCompanySize)}
@@ -367,7 +367,7 @@ export default function TestimonialsSection() {
                           setSelectedIndustry('All')
                           setSelectedCompanySize('All')
                         }}
-                        className="text-slate-400 hover:text-white text-xs underline"
+                        className="text-slate-400 hover:text-white text-xs underline touch-target"
                         whileHover={{ scale: 1.05 }}
                       >
                         Clear all
@@ -376,8 +376,8 @@ export default function TestimonialsSection() {
                   </div>
                 )}
 
-                <div className="mt-4 text-center">
-                  <span className="text-slate-400 text-sm">
+                <div className="mt-3 sm:mt-4 text-center">
+                  <span className="text-slate-400 text-xs sm:text-sm">
                     Showing {filteredTestimonials.length} of {testimonials.length} testimonials
                   </span>
                 </div>
@@ -396,14 +396,14 @@ export default function TestimonialsSection() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -100, scale: 0.8 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="glass rounded-2xl border border-white/10 p-8 md:p-12"
+                className="glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 md:p-8 lg:p-12"
               >
-                <div className="flex items-center mb-6">
+                <div className="flex items-center mb-4 sm:mb-6">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                   >
-                    <Quote className="w-8 h-8 text-navy-400 mr-4" />
+                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-navy-400 mr-3 sm:mr-4" />
                   </motion.div>
                   <div className="flex">
                     {[...Array(filteredTestimonials[currentIndex].rating)].map((_, i) => (
@@ -413,17 +413,17 @@ export default function TestimonialsSection() {
                         animate={{ scale: 1 }}
                         transition={{ delay: i * 0.1, type: "spring", stiffness: 500, damping: 30 }}
                       >
-                        <Star className="w-5 h-5 text-emerald-400 fill-current" />
+                        <Star className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 fill-current" />
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
-                <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8">
+                <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-6 sm:mb-8">
                   "{filteredTestimonials[currentIndex].text}"
                 </blockquote>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
                   <div className="flex items-center">
                     <motion.div
                       className="relative"
@@ -433,35 +433,35 @@ export default function TestimonialsSection() {
                       <img
                         src={filteredTestimonials[currentIndex].avatar || "/placeholder.svg"}
                         alt={filteredTestimonials[currentIndex].name}
-                        className="w-20 h-20 rounded-full mr-6 border-3 border-white/20 object-cover shadow-lg"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mr-4 sm:mr-6 border-2 sm:border-3 border-white/20 object-cover shadow-lg"
                       />
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-500 rounded-full border-2 border-slate-900 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
                       </div>
                     </motion.div>
                     <div>
-                      <div className="text-white font-bold text-xl mb-1">
+                      <div className="text-white font-bold text-lg sm:text-xl mb-1">
                         {filteredTestimonials[currentIndex].name}
                       </div>
-                      <div className="text-slate-400 font-medium">
+                      <div className="text-slate-400 font-medium text-sm sm:text-base">
                         {filteredTestimonials[currentIndex].role}
                       </div>
-                      <div className="text-navy-400 font-semibold">
+                      <div className="text-navy-400 font-semibold text-sm sm:text-base">
                         {filteredTestimonials[currentIndex].company}
                       </div>
                     </div>
                   </div>
 
-                  {/* Industry & Company Size Tags */}
-                  <div className="flex flex-col items-end space-y-2">
+                  {/* Industry & Company Size Tags - Mobile Optimized */}
+                  <div className="flex flex-row sm:flex-col items-start sm:items-end space-x-2 sm:space-x-0 sm:space-y-2">
                     <motion.div
-                      className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getIndustryColor(filteredTestimonials[currentIndex].industry)} text-white`}
+                      className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getIndustryColor(filteredTestimonials[currentIndex].industry)} text-white`}
                       whileHover={{ scale: 1.05 }}
                     >
                       {filteredTestimonials[currentIndex].industry}
                     </motion.div>
                     <motion.div
-                      className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-slate-600 to-slate-700 text-white flex items-center space-x-1"
+                      className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-slate-600 to-slate-700 text-white flex items-center space-x-1"
                       whileHover={{ scale: 1.05 }}
                     >
                       {getCompanySizeIcon(filteredTestimonials[currentIndex].companySize)}
@@ -474,26 +474,26 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center mt-8">
+          <div className="flex justify-between items-center mt-6 sm:mt-8">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={prevTestimonial}
-                className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400"
+                className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400 w-10 h-10 sm:w-12 sm:h-12 touch-target"
                 disabled={filteredTestimonials.length <= 1}
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </motion.div>
 
-            {/* Dots Indicator */}
-            <div className="flex space-x-2">
+            {/* Dots Indicator - Mobile Optimized */}
+            <div className="flex space-x-1.5 sm:space-x-2">
               {filteredTestimonials.map((_, index) => (
                 <motion.button
                   key={index}
                   onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 touch-target ${
                     index === currentIndex
                       ? 'bg-gradient-to-r from-navy-400 to-emerald-400'
                       : 'bg-slate-600 hover:bg-slate-500'
@@ -509,21 +509,21 @@ export default function TestimonialsSection() {
                 variant="outline"
                 size="icon"
                 onClick={nextTestimonial}
-                className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400"
+                className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400 w-10 h-10 sm:w-12 sm:h-12 touch-target"
                 disabled={filteredTestimonials.length <= 1}
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </motion.div>
           </div>
 
           {/* Thumbnail Previews */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 mt-6 sm:mt-8">
             {filteredTestimonials.slice(0, 5).map((testimonial, index) => (
               <motion.button
                 key={`${testimonial.name}-${index}`}
                 onClick={() => goToTestimonial(index)}
-                className={`p-4 rounded-xl border transition-all duration-300 ${
+                className={`p-2 sm:p-4 rounded-lg sm:rounded-xl border transition-all duration-300 touch-target ${
                   index === currentIndex
                     ? 'border-navy-400 glass-strong'
                     : 'border-white/10 glass hover:border-white/20'
@@ -535,17 +535,17 @@ export default function TestimonialsSection() {
                   <img
                     src={testimonial.avatar || "/placeholder.svg"}
                     alt={testimonial.name}
-                    className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-white/20 object-cover"
+                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full mx-auto mb-2 sm:mb-3 border-2 border-white/20 object-cover"
                   />
-                  <div className="absolute -bottom-1 -right-2 w-4 h-4 bg-emerald-500 rounded-full border border-slate-900"></div>
+                  <div className="absolute -bottom-1 -right-1 sm:-right-2 w-3 h-3 sm:w-4 sm:h-4 bg-emerald-500 rounded-full border border-slate-900"></div>
                 </div>
-                <div className="text-white text-sm font-medium truncate">
+                <div className="text-white text-xs sm:text-sm font-medium truncate">
                   {testimonial.name}
                 </div>
                 <div className="text-slate-400 text-xs truncate">
                   {testimonial.company}
                 </div>
-                <div className={`text-xs px-2 py-1 rounded-full mt-2 bg-gradient-to-r ${getIndustryColor(testimonial.industry)} text-white`}>
+                <div className={`text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full mt-1 sm:mt-2 bg-gradient-to-r ${getIndustryColor(testimonial.industry)} text-white`}>
                   {testimonial.industry}
                 </div>
               </motion.button>

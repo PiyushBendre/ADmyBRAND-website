@@ -153,7 +153,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div ref={cardsRef} className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -163,41 +163,41 @@ export default function PricingSection() {
             >
               {plan.popular && (
                 <motion.div
-                  className="absolute -top-4 left-1/2 transform -translate-x-1/2"
+                  className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5, type: "spring", stiffness: 500, damping: 30 }}
                 >
-                  <div className="bg-gradient-to-r from-navy-500 to-emerald-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg">
+                  <div className="bg-gradient-to-r from-navy-500 to-emerald-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium shadow-lg">
                     Most Popular
                   </div>
                 </motion.div>
               )}
               
-              <div className={`glass rounded-2xl border p-8 h-full transition-all duration-500 ${
+              <div className={`glass rounded-xl sm:rounded-2xl border p-4 sm:p-6 lg:p-8 h-full transition-all duration-500 ${
                 plan.popular 
                   ? 'border-navy-500/50 shadow-xl shadow-navy-500/20' 
                   : 'border-white/10 hover:border-white/20'
               } group-hover:shadow-2xl`}>
                 
-                <div className="flex items-center mb-6">
+                <div className="flex items-center mb-4 sm:mb-6">
                   <motion.div 
-                    className={`rounded-xl p-3 bg-gradient-to-r ${plan.gradient} shadow-lg`}
+                    className={`rounded-lg sm:rounded-xl p-2 sm:p-3 bg-gradient-to-r ${plan.gradient} shadow-lg`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <plan.icon className="w-6 h-6 text-white" />
+                    <plan.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
-                  <div className="ml-4">
-                    <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
-                    <p className="text-slate-400 text-sm">{plan.description}</p>
+                  <div className="ml-3 sm:ml-4">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">{plan.name}</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm">{plan.description}</p>
                   </div>
                 </div>
 
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                   <div className="flex items-baseline">
                     <motion.span 
-                      className="text-4xl font-bold text-white"
+                      className="text-3xl sm:text-4xl font-bold text-white"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 500, damping: 30, delay: index * 0.1 }}
@@ -205,13 +205,13 @@ export default function PricingSection() {
                     >
                       ${plan.price}
                     </motion.span>
-                    <span className="text-slate-400 ml-2">/month</span>
+                    <span className="text-slate-400 ml-2 text-sm sm:text-base">/month</span>
                   </div>
                 </div>
 
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button 
-                    className={`w-full mb-8 transition-all duration-300 ${
+                    className={`w-full mb-6 sm:mb-8 transition-all duration-300 h-11 sm:h-12 text-sm sm:text-base touch-target ${
                       plan.popular
                         ? `bg-gradient-to-r ${plan.gradient} hover:shadow-lg hover:shadow-navy-500/30 btn-glow`
                         : 'bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 backdrop-blur-sm'
@@ -231,8 +231,8 @@ export default function PricingSection() {
                   </Button>
                 </motion.div>
 
-                <div className="space-y-4">
-                  <h4 className="text-white font-medium mb-4">What's included:</h4>
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="text-white font-medium mb-3 sm:mb-4 text-sm sm:text-base">What's included:</h4>
                   {plan.features.map((feature, featureIndex) => (
                     <motion.div 
                       key={featureIndex} 
@@ -242,20 +242,20 @@ export default function PricingSection() {
                       transition={{ delay: featureIndex * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-5 h-5 text-emerald-400 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-300 text-sm">{feature}</span>
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-300 text-xs sm:text-sm">{feature}</span>
                     </motion.div>
                   ))}
                   
                   {plan.limitations.length > 0 && (
-                    <div className="pt-4 border-t border-white/10">
-                      <h5 className="text-slate-500 text-sm mb-2">Limitations:</h5>
+                    <div className="pt-3 sm:pt-4 border-t border-white/10">
+                      <h5 className="text-slate-500 text-xs sm:text-sm mb-2">Limitations:</h5>
                       {plan.limitations.map((limitation, limitIndex) => (
                         <div key={limitIndex} className="flex items-start">
-                          <div className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0">
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
                             <div className="w-1 h-1 bg-slate-500 rounded-full mt-2"></div>
                           </div>
-                          <span className="text-slate-500 text-sm">{limitation}</span>
+                          <span className="text-slate-500 text-xs sm:text-sm">{limitation}</span>
                         </div>
                       ))}
                     </div>
@@ -268,14 +268,14 @@ export default function PricingSection() {
 
         {/* Guarantee Section */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12 sm:mt-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="glass rounded-2xl border border-white/10 p-8 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 items-center">
+          <div className="glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 items-center">
               {[
                 { icon: Check, title: "30-Day Guarantee", desc: "Full money-back guarantee", color: "from-emerald-500 to-emerald-600" },
                 { icon: Shield, title: "Secure & Safe", desc: "Enterprise-grade security", color: "from-navy-500 to-navy-600" },
@@ -287,19 +287,19 @@ export default function PricingSection() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg`}>
-                    <item.icon className="w-8 h-8 text-white" />
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg`}>
+                    <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{item.title}</h3>
+                  <p className="text-slate-400 text-xs sm:text-sm">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
-            <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/10">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 btn-glow"
+                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 btn-glow w-full sm:w-auto h-12 touch-target"
                   onClick={() => window.open('https://demo.admybrand.ai/signup?trial=true', '_blank')}
                 >
                   Start Risk-Free Trial

@@ -124,27 +124,28 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div ref={faqsRef} className="space-y-4">
+        {/* Update the FAQ items for mobile responsiveness */}
+        <div ref={faqsRef} className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="glass rounded-2xl border border-white/10 overflow-hidden"
+              className="glass rounded-xl sm:rounded-2xl border border-white/10 overflow-hidden"
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
               <motion.button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors touch-target"
                 whileTap={{ scale: 0.98 }}
               >
-                <h3 className="text-lg font-semibold text-white pr-8">
+                <h3 className="text-base sm:text-lg font-semibold text-white pr-4 sm:pr-6 lg:pr-8">
                   {faq.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <ChevronDown className="w-5 h-5 text-navy-400 flex-shrink-0" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-navy-400 flex-shrink-0" />
                 </motion.div>
               </motion.button>
               
@@ -158,12 +159,12 @@ export default function FAQSection() {
                 className="overflow-hidden"
               >
                 <motion.div 
-                  className="px-8 pb-6"
+                  className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-5 lg:pb-6"
                   initial={{ y: -10 }}
                   animate={{ y: openIndex === index ? 0 : -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-slate-300 leading-relaxed">
+                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
                     {faq.answer}
                   </p>
                 </motion.div>
@@ -173,22 +174,23 @@ export default function FAQSection() {
         </div>
 
         {/* Contact Support */}
+        {/* Update the contact support section for mobile */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-navy-500/20 to-emerald-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-navy-500/20 to-emerald-500/20 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6 lg:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
               Still have questions?
             </h3>
-            <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Our expert team is here to help you succeed. Get personalized answers and see ADmyBRAND AI Suite in action.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
+            <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {[
                 { 
                   icon: Mail, 
@@ -217,26 +219,26 @@ export default function FAQSection() {
               ].map((support, index) => (
                 <motion.div
                   key={index}
-                  className="glass rounded-lg p-4 border border-white/10"
+                  className="glass rounded-lg border border-white/10 p-3 sm:p-4"
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <motion.div
-                    className={`w-8 h-8 bg-gradient-to-r ${support.gradient} rounded-lg flex items-center justify-center mx-auto mb-2`}
+                    className={`w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r ${support.gradient} rounded-lg flex items-center justify-center mx-auto mb-2`}
                     whileHover={{ rotate: 5 }}
                   >
-                    <support.icon className="w-4 h-4 text-white" />
+                    <support.icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                   </motion.div>
-                  <h4 className="text-white font-medium mb-1">{support.title}</h4>
-                  <p className="text-slate-400 text-sm mb-3">{support.desc}</p>
+                  <h4 className="text-white font-medium mb-1 text-sm sm:text-base">{support.title}</h4>
+                  <p className="text-slate-400 text-xs sm:text-sm mb-3">{support.desc}</p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button 
                       size="sm" 
                       variant={index === 2 ? "default" : "outline"}
-                      className={index === 2 
-                        ? `bg-gradient-to-r ${support.gradient} w-full`
-                        : "border-slate-600 text-slate-300 hover:bg-slate-800/50 w-full"
-                      }
+                      className={`${index === 2 
+                        ? `bg-gradient-to-r ${support.gradient} w-full h-9 text-xs sm:text-sm`
+                        : "border-slate-600 text-slate-300 hover:bg-slate-800/50 w-full h-9 text-xs sm:text-sm"
+                      } touch-target`}
                       onClick={support.action}
                     >
                       {support.buttonText}
@@ -249,7 +251,7 @@ export default function FAQSection() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 btn-glow"
+                className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 btn-glow w-full sm:w-auto h-12 touch-target"
                 onClick={() => window.open('https://demo.admybrand.ai/signup?trial=true', '_blank')}
               >
                 Try It Risk-Free

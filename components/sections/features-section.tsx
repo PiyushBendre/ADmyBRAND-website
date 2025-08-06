@@ -128,7 +128,8 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Features grid */}
+        <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -137,22 +138,22 @@ export default function FeaturesSection() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               onClick={() => window.open(`https://demo.admybrand.ai/features/${feature.title.toLowerCase().replace(/\s+/g, '-')}`, '_blank')}
             >
-              <div className="glass rounded-2xl border border-white/10 p-8 h-full transition-all duration-500 group-hover:border-navy-400/50 group-hover:shadow-xl group-hover:shadow-navy-500/10 shimmer">
-                <div className="flex items-center mb-6">
+              <div className="glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 lg:p-8 h-full transition-all duration-500 group-hover:border-navy-400/50 group-hover:shadow-xl group-hover:shadow-navy-500/10 shimmer touch-target">
+                <div className="flex items-center mb-4 sm:mb-6">
                   <motion.div 
-                    className={`bg-gradient-to-r ${feature.color} rounded-xl p-3 shadow-lg`}
+                    className={`bg-gradient-to-r ${feature.color} rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <feature.icon className="w-6 h-6 text-white" />
+                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-navy-300 transition-colors">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 group-hover:text-navy-300 transition-colors">
                   {feature.title}
                 </h3>
                 
-                <p className="text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">
+                <p className="text-slate-400 leading-relaxed mb-4 sm:mb-6 group-hover:text-slate-300 transition-colors text-sm sm:text-base">
                   {feature.description}
                 </p>
 
@@ -161,8 +162,8 @@ export default function FeaturesSection() {
                     className="flex items-center text-navy-400 group-hover:text-emerald-400 transition-colors"
                     whileHover={{ x: 5 }}
                   >
-                    <span className="text-sm font-medium">Try it now</span>
-                    <TrendingUp className="w-4 h-4 ml-2" />
+                    <span className="text-xs sm:text-sm font-medium">Try it now</span>
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
                   </motion.div>
                   
                   <motion.div
@@ -173,7 +174,7 @@ export default function FeaturesSection() {
                     <Button 
                       size="sm" 
                       variant="ghost" 
-                      className="text-slate-400 hover:text-white hover:bg-white/10"
+                      className="text-slate-400 hover:text-white hover:bg-white/10 text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 touch-target"
                       onClick={(e) => {
                         e.stopPropagation();
                         window.open('https://demo.admybrand.ai/signup', '_blank');
@@ -190,13 +191,13 @@ export default function FeaturesSection() {
 
         {/* Stats Section */}
         <motion.div
-          className="mt-24 glass rounded-2xl border border-white/10 p-8"
+          className="mt-16 sm:mt-20 lg:mt-24 glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 lg:p-8"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center">
             {[
               { value: "500%", label: "Average ROI Increase" },
               { value: "10K+", label: "Active Campaigns" },
@@ -208,8 +209,8 @@ export default function FeaturesSection() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-slate-400">{stat.label}</div>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
+                <div className="text-slate-400 text-xs sm:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -217,24 +218,24 @@ export default function FeaturesSection() {
 
         {/* Action CTA Section */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-navy-500/20 to-emerald-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-navy-500/20 to-emerald-500/20 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6 lg:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
               Ready to Transform Your Marketing?
             </h3>
-            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-300 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">
               Join thousands of businesses already using ADmyBRAND AI Suite to scale their marketing efforts.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 shadow-lg btn-glow"
+                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 transition-all duration-300 shadow-lg btn-glow w-full sm:w-auto h-12 touch-target"
                   onClick={() => window.open('https://demo.admybrand.ai/signup?trial=true', '_blank')}
                 >
                   Start Your Free Trial
@@ -245,7 +246,7 @@ export default function FeaturesSection() {
                 <Button 
                   size="lg"
                   variant="outline"
-                  className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400 hover:text-white transition-all duration-300"
+                  className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-navy-400 hover:text-white transition-all duration-300 w-full sm:w-auto h-12 touch-target"
                   onClick={() => window.open('https://calendly.com/demo-admybrand', '_blank')}
                 >
                   Schedule Demo

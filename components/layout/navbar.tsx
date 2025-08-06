@@ -110,7 +110,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white p-2"
+                className="text-white p-3 rounded-lg hover:bg-slate-800/50 transition-colors touch-target"
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
@@ -131,14 +131,14 @@ export default function Navbar() {
               opacity: isOpen ? 1 : 0
             }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden bg-slate-900/98 backdrop-blur-md"
           >
-            <div className="py-4 space-y-4">
+            <div className="py-6 px-4 space-y-6 border-t border-slate-700/50">
               {['features', 'pricing', 'testimonials', 'faq'].map((item, index) => (
                 <motion.button
                   key={item}
                   onClick={() => handleNavClick(item)}
-                  className="block w-full text-left text-slate-300 hover:text-white transition-colors font-medium capitalize py-2"
+                  className="block w-full text-left text-slate-300 hover:text-white transition-colors font-medium capitalize py-3 px-4 rounded-lg hover:bg-slate-800/50 touch-target"
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
@@ -147,16 +147,16 @@ export default function Navbar() {
                 </motion.button>
               ))}
               
-              <div className="pt-4 space-y-3">
+              <div className="pt-4 space-y-4">
                 <Button 
                   variant="outline" 
-                  className="w-full border-slate-600 text-slate-300 hover:bg-slate-800/50"
+                  className="w-full border-slate-600 text-slate-300 hover:bg-slate-800/50 h-12 text-base touch-target"
                   onClick={() => setShowAuthModal(true)}
                 >
                   Sign In
                 </Button>
                 <Button 
-                  className="w-full bg-gradient-to-r from-navy-600 to-emerald-600"
+                  className="w-full bg-gradient-to-r from-navy-600 to-emerald-600 h-12 text-base touch-target"
                   onClick={() => window.open('https://demo.admybrand.ai/signup', '_blank')}
                 >
                   Get Started

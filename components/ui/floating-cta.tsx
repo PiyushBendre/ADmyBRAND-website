@@ -54,47 +54,47 @@ export default function FloatingCTA() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-sm">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 max-w-xs sm:max-w-sm">
           <motion.div
             ref={ctaRef}
-            className="bg-gradient-to-r from-navy-600 to-emerald-600 rounded-2xl p-6 shadow-2xl border border-white/20 backdrop-blur-sm"
+            className="bg-gradient-to-r from-navy-600 to-emerald-600 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl border border-white/20 backdrop-blur-sm"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
             <motion.button
               onClick={handleDismiss}
-              className="absolute top-2 right-2 text-white/60 hover:text-white transition-colors"
+              className="absolute top-2 right-2 text-white/60 hover:text-white transition-colors touch-target"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <X className="w-4 h-4" />
             </motion.button>
             
-            <div className="flex items-center mb-3">
+            <div className="flex items-center mb-2 sm:mb-3">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles className="w-5 h-5 text-emerald-300 mr-2" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-300 mr-2" />
               </motion.div>
-              <span className="text-white font-semibold text-sm">Limited Time Offer</span>
+              <span className="text-white font-semibold text-xs sm:text-sm">Limited Time Offer</span>
             </div>
             
-            <h3 className="text-white font-bold text-lg mb-2">
+            <h3 className="text-white font-bold text-base sm:text-lg mb-2">
               Start Your Free Trial
             </h3>
             
-            <p className="text-white/90 text-sm mb-4">
+            <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4">
               Join 10,000+ marketers already using ADmyBRAND AI Suite. No credit card required.
             </p>
             
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 onClick={handleCTA}
-                className="w-full bg-white text-navy-600 hover:bg-white/90 font-semibold group"
+                className="w-full bg-white text-navy-600 hover:bg-white/90 font-semibold group h-10 sm:h-11 text-sm sm:text-base touch-target"
               >
                 Get Started Free
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
             
