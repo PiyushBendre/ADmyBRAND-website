@@ -176,12 +176,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: support@admybrand.ai
-- 💬 Discord: [Join our community](https://discord.gg/admybrand)
-- 📖 Documentation: [docs.admybrand.ai](https://docs.admybrand.ai)
+- 📧 Email: piyushbendre2004@gmail.com
 
 ---
 
 <div align="center">
-  Made with ❤️ by the ADmyBRAND team
+  Made with ❤️ Piyush
 </div>
