@@ -38,27 +38,27 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer ref={footerRef} className="relative py-16 border-t border-white/10 bg-slate-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+    <footer ref={footerRef} className="relative py-12 sm:py-16 border-t border-white/10 bg-slate-900/50">
+      <div className="container-responsive">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand - Full width on mobile */}
           <motion.div
-            className="col-span-2 md:col-span-1"
+            className="sm:col-span-2 lg:col-span-1"
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-2 mb-4 sm:mb-6">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-navy-400" />
+                <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-navy-400" />
               </motion.div>
-              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-navy-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-responsive-lg sm:text-responsive-xl font-bold bg-gradient-to-r from-navy-400 to-emerald-400 bg-clip-text text-transparent">
                 ADmyBRAND AI
               </span>
             </div>
-            <p className="text-slate-400 mb-4 sm:mb-6 text-sm sm:text-base">
+            <p className="text-slate-400 mb-4 sm:mb-6 text-responsive-sm sm:text-responsive-base max-w-sm">
               Transform your marketing with AI-powered campaigns that deliver exceptional results.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
@@ -71,7 +71,7 @@ export default function Footer() {
                 <motion.button
                   key={index}
                   onClick={() => window.open(social.url, '_blank')}
-                  className="text-slate-500 hover:text-navy-400 transition-all duration-300 touch-target"
+                  className="text-slate-500 hover:text-navy-400 transition-all duration-300 touch-target p-2"
                   whileHover={{ scale: 1.2, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -86,8 +86,8 @@ export default function Footer() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Product</h3>
-            <ul className="space-y-1.5 sm:space-y-2">
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-responsive-sm sm:text-responsive-base">Product</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 { name: 'Features', action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
                 { name: 'Pricing', action: () => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }) },
@@ -98,7 +98,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.button
                     onClick={item.action}
-                    className="text-slate-400 hover:text-white transition-colors text-left text-xs sm:text-sm touch-target"
+                    className="text-slate-400 hover:text-white transition-colors text-left text-responsive-xs sm:text-responsive-sm touch-target py-1"
                     whileHover={{ x: 5 }}
                   >
                     {item.name}
@@ -113,8 +113,8 @@ export default function Footer() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Company</h3>
-            <ul className="space-y-1.5 sm:space-y-2">
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-responsive-sm sm:text-responsive-base">Company</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 { name: 'About', url: 'https://admybrand.ai/about' },
                 { name: 'Blog', url: 'https://blog.admybrand.ai' },
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.button
                     onClick={() => window.open(item.url, '_blank')}
-                    className="text-slate-400 hover:text-white transition-colors text-left text-xs sm:text-sm touch-target"
+                    className="text-slate-400 hover:text-white transition-colors text-left text-responsive-xs sm:text-responsive-sm touch-target py-1"
                     whileHover={{ x: 5 }}
                   >
                     {item.name}
@@ -140,8 +140,8 @@ export default function Footer() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Support</h3>
-            <ul className="space-y-1.5 sm:space-y-2">
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-responsive-sm sm:text-responsive-base">Support</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 { name: 'Help Center', url: 'https://help.admybrand.ai' },
                 { name: 'Documentation', url: 'https://docs.admybrand.ai' },
@@ -152,7 +152,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.button
                     onClick={() => window.open(item.url, '_blank')}
-                    className="text-slate-400 hover:text-white transition-colors text-left text-xs sm:text-sm touch-target"
+                    className="text-slate-400 hover:text-white transition-colors text-left text-responsive-xs sm:text-responsive-sm touch-target py-1"
                     whileHover={{ x: 5 }}
                   >
                     {item.name}
@@ -170,7 +170,7 @@ export default function Footer() {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-slate-500 text-xs sm:text-sm text-center md:text-left">
+          <p className="text-slate-500 text-responsive-xs sm:text-responsive-sm text-center md:text-left">
             © 2025 ADmyBRAND AI Suite. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6">
@@ -182,7 +182,7 @@ export default function Footer() {
               <motion.button
                 key={index}
                 onClick={() => window.open(item.url, '_blank')}
-                className="text-slate-500 hover:text-white text-xs sm:text-sm transition-colors touch-target"
+                className="text-slate-500 hover:text-white text-responsive-xs sm:text-responsive-sm transition-colors touch-target py-1"
                 whileHover={{ y: -2 }}
               >
                 {item.name}

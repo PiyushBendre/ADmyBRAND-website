@@ -101,20 +101,20 @@ export default function FeaturesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="features" className="py-24 relative bg-slate-900/50">
+    <section ref={sectionRef} id="features" className="py-12 sm:py-16 lg:py-24 relative bg-slate-900/50">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/10 to-transparent"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center mb-16">
+      <div className="relative z-10 container-responsive">
+        <div ref={titleRef} className="text-center mb-12 sm:mb-16">
           <motion.div
-            className="inline-flex items-center px-4 py-2 rounded-full glass border border-white/20 text-sm text-white mb-6"
+            className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-white/20 text-xs sm:text-sm text-white mb-4 sm:mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-4 h-4 mr-2 text-navy-400" />
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-navy-400" />
             Powerful Features
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-responsive-3xl sm:text-responsive-4xl lg:text-responsive-5xl font-bold text-white mb-4 sm:mb-6">
             Everything You Need to
             <span className="bg-gradient-to-r from-navy-400 to-emerald-400 bg-clip-text text-transparent">
               {' '}Dominate{' '}
@@ -122,14 +122,14 @@ export default function FeaturesSection() {
             Your Market
           </h2>
           
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-responsive-lg sm:text-responsive-xl text-slate-300 max-w-3xl mx-auto">
             Our comprehensive AI-powered suite provides all the tools you need to create, 
             optimize, and scale your marketing campaigns like never before.
           </p>
         </div>
 
         {/* Features grid */}
-        <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -149,11 +149,11 @@ export default function FeaturesSection() {
                   </motion.div>
                 </div>
                 
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 group-hover:text-navy-300 transition-colors">
+                <h3 className="text-responsive-lg sm:text-responsive-xl font-semibold text-white mb-3 sm:mb-4 group-hover:text-navy-300 transition-colors">
                   {feature.title}
                 </h3>
                 
-                <p className="text-slate-400 leading-relaxed mb-4 sm:mb-6 group-hover:text-slate-300 transition-colors text-sm sm:text-base">
+                <p className="text-slate-400 leading-relaxed mb-4 sm:mb-6 group-hover:text-slate-300 transition-colors text-responsive-sm sm:text-responsive-base">
                   {feature.description}
                 </p>
 
@@ -191,7 +191,7 @@ export default function FeaturesSection() {
 
         {/* Stats Section */}
         <motion.div
-          className="mt-16 sm:mt-20 lg:mt-24 glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 lg:p-8"
+          className="mt-12 sm:mt-16 lg:mt-24 glass rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-6 lg:p-8"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -209,8 +209,8 @@ export default function FeaturesSection() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
-                <div className="text-slate-400 text-xs sm:text-sm">{stat.label}</div>
+                <div className="text-responsive-xl sm:text-responsive-2xl lg:text-responsive-3xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
+                <div className="text-slate-400 text-responsive-xs sm:text-responsive-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -225,10 +225,10 @@ export default function FeaturesSection() {
           viewport={{ once: true }}
         >
           <div className="bg-gradient-to-r from-navy-500/20 to-emerald-500/20 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6 lg:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+            <h3 className="text-responsive-xl sm:text-responsive-2xl font-bold text-white mb-3 sm:mb-4">
               Ready to Transform Your Marketing?
             </h3>
-            <p className="text-slate-300 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-slate-300 mb-4 sm:mb-6 max-w-2xl mx-auto text-responsive-sm sm:text-responsive-base">
               Join thousands of businesses already using ADmyBRAND AI Suite to scale their marketing efforts.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

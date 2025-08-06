@@ -71,7 +71,13 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -92,56 +98,173 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Mobile-first responsive utilities */
-@media (max-width: 640px) {
-  .mobile-padding {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* Responsive container utilities */
+.container-responsive {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  
-  .mobile-text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
-  
-  .mobile-text-base {
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-responsive {
+    max-width: 1536px;
+  }
+}
+
+/* Responsive text utilities */
+.text-responsive-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-responsive-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-responsive-base {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-responsive-lg {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-responsive-xl {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-responsive-2xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-responsive-3xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-responsive-4xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-responsive-5xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }
   
-  .mobile-text-lg {
+  .text-responsive-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
   
-  .mobile-text-xl {
+  .text-responsive-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
   
-  .mobile-text-2xl {
+  .text-responsive-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
   }
   
-  .mobile-text-3xl {
+  .text-responsive-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
   
-  .mobile-text-4xl {
+  .text-responsive-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+  
+  .text-responsive-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-responsive-2xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  
+  .text-responsive-3xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-responsive-4xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  
+  .text-responsive-5xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-4xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  .text-responsive-5xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 }
 
 /* Touch-friendly interactions */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
 @media (hover: none) and (pointer: coarse) {
-  .touch-target {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
   .hover\:scale-105:hover {
     transform: none;
   }
@@ -151,24 +274,47 @@ html {
   }
 }
 
-/* Mobile navigation improvements */
-@media (max-width: 768px) {
-  .mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 40;
+/* Responsive spacing utilities */
+.spacing-responsive-sm {
+  padding: 0.5rem;
+}
+
+.spacing-responsive-md {
+  padding: 1rem;
+}
+
+.spacing-responsive-lg {
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .spacing-responsive-sm {
+    padding: 0.75rem;
+  }
+  
+  .spacing-responsive-md {
+    padding: 1.5rem;
+  }
+  
+  .spacing-responsive-lg {
+    padding: 2rem;
   }
 }
 
-/* Improved mobile scrolling */
-.mobile-scroll {
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+@media (min-width: 768px) {
+  .spacing-responsive-md {
+    padding: 2rem;
+  }
+  
+  .spacing-responsive-lg {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-responsive-lg {
+    padding: 4rem;
+  }
 }
 
 /* Professional animations */
@@ -224,44 +370,6 @@ html {
   box-shadow: 0 0 30px rgba(79, 70, 229, 0.4);
 }
 
-/* Loading animation */
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Shimmer effect */
-.shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  animation: shimmer 2s infinite;
-}
-
 /* Professional gradient backgrounds */
 .bg-professional {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
@@ -295,4 +403,47 @@ html {
 .gsap-rotate-in {
   opacity: 0;
   transform: rotate(-10deg) scale(0.9);
+}
+
+/* Responsive grid utilities */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Responsive flex utilities */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .flex-responsive {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+/* Safe area padding for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-padding {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
 }

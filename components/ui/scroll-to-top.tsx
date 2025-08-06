@@ -34,7 +34,7 @@ export default function ScrollToTop() {
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50"
+          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 safe-area-padding"
         >
           <motion.div
             whileHover={{ scale: 1.1, y: -5 }}

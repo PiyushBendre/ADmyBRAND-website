@@ -50,10 +50,10 @@ export default function Navbar() {
       {/* Main Navbar */}
       <nav
         ref={navRef}
-        className="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50"
+        className="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 safe-area-padding"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="container-responsive">
+          <div className="flex justify-between items-center h-14 sm:h-16 lg:h-18">
             {/* Logo */}
             <motion.div 
               ref={logoRef}
@@ -65,20 +65,20 @@ export default function Navbar() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Sparkles className="h-7 w-7 text-navy-400" />
+                <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-navy-400" />
               </motion.div>
-              <span className="text-xl font-bold text-white">
+              <span className="text-base sm:text-lg lg:text-xl font-bold text-white">
                 ADmyBRAND AI
               </span>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div ref={menuRef} className="hidden md:flex items-center space-x-8">
+            <div ref={menuRef} className="hidden md:flex items-center space-x-4 lg:space-x-8">
               {['features', 'pricing', 'testimonials', 'faq'].map((item) => (
                 <motion.button
                   key={item}
                   onClick={() => handleNavClick(item)}
-                  className="text-slate-300 hover:text-white transition-all duration-300 font-medium capitalize"
+                  className="text-slate-300 hover:text-white transition-all duration-300 font-medium capitalize text-sm lg:text-base"
                   whileHover={{ y: -2 }}
                   whileTap={{ y: 0 }}
                 >
@@ -89,7 +89,8 @@ export default function Navbar() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
                   variant="outline" 
-                  className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-slate-500 hover:text-white transition-all duration-300"
+                  size="sm"
+                  className="border-slate-600 text-slate-300 hover:bg-slate-800/50 hover:border-slate-500 hover:text-white transition-all duration-300 text-sm lg:text-base"
                   onClick={() => setShowAuthModal(true)}
                 >
                   Sign In
@@ -98,7 +99,8 @@ export default function Navbar() {
               
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
-                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 text-white transition-all duration-300 shadow-lg"
+                  size="sm"
+                  className="bg-gradient-to-r from-navy-600 to-emerald-600 hover:from-navy-700 hover:to-emerald-700 text-white transition-all duration-300 shadow-lg text-sm lg:text-base"
                   onClick={() => window.open('https://demo.admybrand.ai/signup', '_blank')}
                 >
                   Get Started
@@ -110,60 +112,68 @@ export default function Navbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white p-3 rounded-lg hover:bg-slate-800/50 transition-colors touch-target"
+                className="text-white p-2 rounded-lg hover:bg-slate-800/50 transition-colors touch-target"
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                 </motion.div>
               </motion.button>
             </div>
           </div>
 
           {/* Mobile Navigation */}
-          <motion.div
-            initial={false}
-            animate={{ 
-              height: isOpen ? 'auto' : 0,
-              opacity: isOpen ? 1 : 0
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-slate-900/98 backdrop-blur-md"
-          >
-            <div className="py-6 px-4 space-y-6 border-t border-slate-700/50">
-              {['features', 'pricing', 'testimonials', 'faq'].map((item, index) => (
-                <motion.button
-                  key={item}
-                  onClick={() => handleNavClick(item)}
-                  className="block w-full text-left text-slate-300 hover:text-white transition-colors font-medium capitalize py-3 px-4 rounded-lg hover:bg-slate-800/50 touch-target"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {item === 'faq' ? 'FAQ' : item}
-                </motion.button>
-              ))}
-              
-              <div className="pt-4 space-y-4">
-                <Button 
-                  variant="outline" 
-                  className="w-full border-slate-600 text-slate-300 hover:bg-slate-800/50 h-12 text-base touch-target"
-                  onClick={() => setShowAuthModal(true)}
-                >
-                  Sign In
-                </Button>
-                <Button 
-                  className="w-full bg-gradient-to-r from-navy-600 to-emerald-600 h-12 text-base touch-target"
-                  onClick={() => window.open('https://demo.admybrand.ai/signup', '_blank')}
-                >
-                  Get Started
-                </Button>
-              </div>
-            </div>
-          </motion.div>
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="md:hidden overflow-hidden bg-slate-900/98 backdrop-blur-md border-t border-slate-700/50"
+              >
+                <div className="py-4 space-y-2">
+                  {['features', 'pricing', 'testimonials', 'faq'].map((item, index) => (
+                    <motion.button
+                      key={item}
+                      onClick={() => handleNavClick(item)}
+                      className="block w-full text-left text-slate-300 hover:text-white transition-colors font-medium capitalize py-3 px-4 rounded-lg hover:bg-slate-800/50 touch-target"
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      {item === 'faq' ? 'FAQ' : item}
+                    </motion.button>
+                  ))}
+                  
+                  <div className="pt-2 space-y-2 px-4">
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-slate-600 text-slate-300 hover:bg-slate-800/50 h-11 text-base touch-target"
+                      onClick={() => {
+                        setShowAuthModal(true)
+                        setIsOpen(false)
+                      }}
+                    >
+                      Sign In
+                    </Button>
+                    <Button 
+                      className="w-full bg-gradient-to-r from-navy-600 to-emerald-600 h-11 text-base touch-target"
+                      onClick={() => {
+                        window.open('https://demo.admybrand.ai/signup', '_blank')
+                        setIsOpen(false)
+                      }}
+                    >
+                      Get Started
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </nav>
 
