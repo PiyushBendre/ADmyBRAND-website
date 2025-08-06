@@ -5,7 +5,7 @@
   
   <p>Transform your marketing with AI-powered campaigns that deliver exceptional results.</p>
   
-  [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/admybrand-ai-suite)
+  [![Deploy with Vercel](https://vercel.com/button) a-dmy-brand-git-main-piyushbendre2004-7123s-projects.vercel.app
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
